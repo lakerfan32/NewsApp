@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary color of the app (shown in the app bar) -->
+    <color name="colorPrimary">#2B3D4D</color>
+
+    <!-- Primary dark color of the app (shown in the status bar) -->
+    <color name="colorPrimaryDark">#23303D</color>
+
+    <!-- Accent color of the app -->
+    <color name="colorAccent">#10CAC9</color>
+
+    <!-- Text color for the section of the news item -->
+    <color name="textColorNewsSection">#4A7BA7</color>
+
+    <!-- Text color for the title of the news item -->
+    <color name="textColorNewsTitle">#2B3D4D</color>
+
+    <!-- Text color for the date of the news item -->
+    <color name="textColorNewsDate">#666666</color>
+
+    <!-- Text color for the time of the news item -->
+    <color name="textColorNewsTime">#666666</color>
+
+    <!-- Text color for the time of the news item -->
+    <color name="textColorByline">#666666</color>
+
+    <!-- Color for a news item in the news section 1 -->
+    <color name="newsSectionColor1">#c51162</color>
+
+    <!-- Color for a news item in the news section 2 -->
+    <color name="newsSectionColor2">#9c27b0</color>
+
+    <!-- Color for a news item in the news section 3 -->
+    <color name="newsSectionColor3">#F5A623</color>
+
+    <!-- Color for a news item in the news section 4 -->
+    <color name="newsSectionColor4">#ef6c00</color>
+
+    <!-- Color for a news item in the news section 5 -->
+    <color name="newsSectionColor5">#388e3c</color>
+
+    <!-- Color for a news item in the news section 6 -->
+    <color name="newsSectionColor6">#C03823</color>
+
+    <!-- Color for a news item in the news section 7 -->
+    <color name="newsSectionColor7">#26a69a</color>
+
+</resources>

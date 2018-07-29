@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="6dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="6dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/news_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="bottom"
+            android:maxLines="1"
+            android:textAllCaps="true"
+            android:textColor="@color/textColorNewsSection"
+            android:textSize="12sp"
+            tools:text="News Section" />
+
+        <TextView
+            android:id="@+id/news_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:ellipsize="end"
+            android:gravity="top"
+            android:maxLines="2"
+            android:textColor="@color/textColorNewsTitle"
+            android:textSize="16sp"
+            tools:text="Title of news article which is long so that it fills up 2 lines" />
+
+        <TextView
+            android:id="@+id/news_byline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-regular"
+            android:gravity="bottom"
+            android:maxLines="1"
+            android:textStyle="italic"
+            android:textColor="@color/textColorByline"
+            android:textSize="12sp"
+            tools:text="Author Name" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="@color/textColorNewsDate"
+            android:textSize="12sp"
+            tools:text="2018-01-22" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="@color/textColorNewsTime"
+            android:textSize="12sp"
+            tools:text="12:00:00" />
+
+    </LinearLayout>
+
+</LinearLayout>
