@@ -178,22 +178,33 @@ public final class QueryUtils {
                 // Extract the value for the key called "webUrl"
                 String webUrl = currentNews.getString("webUrl");
 
-                // Go down one more level
-                JSONObject newsTags = currentNews.getJSONObject("tags");
+                // Go down one more level to obtain tags
+                JSONArray newsTags = currentNews.getJSONArray("tags");
 
-                // Get the string for the author from newsTags
-                String newsItemAuthor = newsTags.getString("webTitle");
-
-                // Create a new {@link News} object with the title, name, publication date, url
+                // Create a new {@link News} object with the title, section name, publication date, url
                 // and author (if available) from the JSON response.
-                if (newsItemAuthor !=null) {
-                    News newsItem = new News(webTitle, sectionName, webPublicationDate, webUrl, newsItemAuthor);
+                if (newsTags.isNull(0)) {
+                    // Set author to null if tags array is empty
+                    String newsItemAuthor = null;
+
+                    // create the news item array
+                    News newsItem = new News(webTitle, sectionName, webPublicationDate, webUrl);
+                    Log.i("QueryUtils", "newsItemAuthor is NOT included");
 
                     // Add the new {@link News} to the list of news items.
                     newsItems.add(newsItem);
                 } else {
-                    News newsItem = new News(webTitle, sectionName, webPublicationDate, webUrl);
-                // Add the new {@link News} to the list of news items.
+                    // get the index for the tags array
+                    JSONObject newsItemAuthorObject = newsTags.getJSONObject(0);
+                    Log.i("QueryUtils", "newsItemAuthorObject successful");
+
+                    // get the author string
+                    String newsItemAuthor = newsItemAuthorObject.getString("webTitle");
+
+                    // create the news item array, including the author
+                    News newsItem = new News(webTitle, sectionName, webPublicationDate, webUrl, newsItemAuthor);
+                    Log.i("QueryUtils", "newsItemAuthor is included");
+                    // Add the new {@link News} to the list of news items.
                     newsItems.add(newsItem);
                 }
 

@@ -22,13 +22,14 @@ public class NewsActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<List<News>>,
         SharedPreferences.OnSharedPreferenceChangeListener {
 
+
     private static final String LOG_TAG = NewsActivity.class.getName();
 
     /**
      * URL for news item data from the GUARDIAN dataset
      */
     private static final String GUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/search?q=arts&from-date=2018-05-01&order-by=relevance&show-tags=contributor&api-key=b12ea91b-a708-4145-a15f-e9cb7cf79369";
+            "https://content.guardianapis.com/search?q=arts&from-date=2018-05-01&order-by=relevance&show-tags=contributor&api-key=e645d915-0452-42bf-8709-535c74471ce5";
 
     /**
      * Constant value for the news item loader ID. We can choose any integer.
