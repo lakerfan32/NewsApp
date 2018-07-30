@@ -1,6 +1,5 @@
 package com.example.ralph.newsapp;
 
-
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -47,6 +46,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Find the news item at the given position in the list of news items
         News currentNewsItem = getItem(position);
 
+        // Get the news item date string from the News object
         String newsItemDate = currentNewsItem.getNewsDate();
 
         String[] dateTimeparts = newsItemDate.split("T");
@@ -58,7 +58,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // newsItemTime trims off the Z part of the date
         String newsItemTime = timeParts[0];
 
-
+        // Get the news item title string from the News object
         String newsItemTitle = currentNewsItem.getNewsTitle();
 
         // Find the TextView with view ID news title
@@ -66,45 +66,39 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Display the title of the current news item in that TextView
         newsTitleTextView.setText(newsItemTitle);
 
-
+        // Get the news item section string from the News object
         String newsItemSection = currentNewsItem.getNewsSection();
         // Find the TextView with view ID news section
         TextView newsSectionTextView = (TextView) listItemView.findViewById(R.id.news_section);
         // Display the section of the current news item in that TextView
         newsSectionTextView.setText(newsItemSection);
 
-
-        // change the text color of the news section based on the section
+        // Change the text color of the news section based on the section
         int newsSectionCustomColor = getNewsSectionColor(currentNewsItem.getNewsSection());
         // Set the color of the news section
         newsSectionTextView.setTextColor(newsSectionCustomColor);
 
-
+        // Get the news item author byline string from the News object
         String newsAuthorByline = currentNewsItem.getNewsAuthor();
         // Find the TextView with view ID news author
         TextView newsAuthorTextView = (TextView) listItemView.findViewById(R.id.news_byline);
 
-
+        // Determine if news item has author or not
         if (currentNewsItem.hasAuthor()) {
-
-
             // Display the author of the current news item in that TextView
             newsAuthorTextView.setText(newsAuthorByline);
             // make text view visible
             newsAuthorTextView.setVisibility(View.VISIBLE);
-
         } else {
-// make text view not visible
+            // make text view not visible
             newsAuthorTextView.setVisibility(View.GONE);
         }
-
 
         // Find the TextView with view ID date
         TextView dateView = (TextView) listItemView.findViewById(R.id.date);
 
         // Display the date of the current news item in that TextView
         dateView.setText(newsItemDateDay);
-
 
         // Find the TextView with view ID time
         TextView timeView = (TextView) listItemView.findViewById(R.id.time);
@@ -115,8 +109,11 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Return the list item view that is now showing the appropriate news data
         return listItemView;
     }
-
-
+    /**
+     * Return the specific color for each section of the news item
+     *
+     * @param newsSection of the item
+     */
     private int getNewsSectionColor(String newsSection) {
         int newsSectionResourceId;
         switch (newsSection) {

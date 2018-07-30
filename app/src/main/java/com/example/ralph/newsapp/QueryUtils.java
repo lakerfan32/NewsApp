@@ -1,6 +1,5 @@
 package com.example.ralph.newsapp;
 
-
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Helper methods related to requesting and receiving news item data from USGS.
+ * Helper methods related to requesting and receiving news item data from The GUARDIAN News.
  */
 public final class QueryUtils {
 
@@ -38,9 +37,10 @@ public final class QueryUtils {
     }
 
     /**
-     * Query the USGS dataset and return a list of {@link News} objects.
+     * Query the Guardian News and return a list of {@link News} objects.
      */
     public static List<News> fetchNewsData(String requestUrl) {
+
         // Create URL object
         URL url = createUrl(requestUrl);
 
@@ -154,12 +154,11 @@ public final class QueryUtils {
 
             // Create a JSONObject from the JSON response string
             JSONObject baseJsonResponse = new JSONObject(newsJSON);
-            JSONObject JSONSecondLevel = baseJsonResponse.getJSONObject("response"); // response. i added this one
+            JSONObject JSONSecondLevel = baseJsonResponse.getJSONObject("response");
 
-
-            // Extract the JSONArray associated with the key called "features",
-            // which represents a list of features (or news items).
-            JSONArray newsArray = JSONSecondLevel.getJSONArray("results"); // features in earthquake app
+            // Extract the JSONArray associated with the key called "results",
+            // which represents a list of results (or news items).
+            JSONArray newsArray = JSONSecondLevel.getJSONArray("results");
 
             // For each news item in the newsArray, create an {@link News} object
             for (int i = 0; i < newsArray.length(); i++) {
@@ -167,34 +166,30 @@ public final class QueryUtils {
                 // Get a single news item at position i within the list of news items
                 JSONObject currentNews = newsArray.getJSONObject(i);
 
-                // For a given news item, extract the JSONObject associated with the
-                // key called "properties", which represents a list of all properties
-                // for that news item.
-                // JSONObject properties = currentNews.getJSONObject("properties");
-
-                // Extract the value for the key called "mag"
+                // Extract the value for the key called "webTitle"
                 String webTitle = currentNews.getString("webTitle");
 
-                // Extract the value for the key called "place"
+                // Extract the value for the key called "sectionName"
                 String sectionName = currentNews.getString("sectionName");
 
-                // Extract the value for the key called "time"
+                // Extract the value for the key called "webPublicationDate"
                 String webPublicationDate = currentNews.getString("webPublicationDate");
 
-                // Extract the value for the key called "url"
+                // Extract the value for the key called "webUrl"
                 String webUrl = currentNews.getString("webUrl");
 
                 // Go down one more level
                 JSONObject newsTags = currentNews.getJSONObject("tags");
 
-                // get the string for the author
+                // Get the string for the author from newsTags
                 String newsItemAuthor = newsTags.getString("webTitle");
 
-                // Create a new {@link News} object with the magnitude, location, time,
-                // and url from the JSON response.
+                // Create a new {@link News} object with the title, name, publication date, url
+                // and author (if available) from the JSON response.
                 if (newsItemAuthor !=null) {
                     News newsItem = new News(webTitle, sectionName, webPublicationDate, webUrl, newsItemAuthor);
-                // Add the new {@link News} to the list of news items.
+
+                    // Add the new {@link News} to the list of news items.
                     newsItems.add(newsItem);
                 } else {
                     News newsItem = new News(webTitle, sectionName, webPublicationDate, webUrl);

@@ -28,8 +28,7 @@ public class NewsActivity extends AppCompatActivity
      * URL for news item data from the GUARDIAN dataset
      */
     private static final String GUARDIAN_REQUEST_URL =
-
-            "https://content.guardianapis.com/search?q=arts&from-date=2018-05-01&order-by=relevance&show-tags=contributor&api-key=e645d915-0452-42bf-8709-535c74471ce5";
+            "https://content.guardianapis.com/search?q=arts&from-date=2018-05-01&order-by=relevance&show-tags=contributor&api-key=b12ea91b-a708-4145-a15f-e9cb7cf79369";
 
     /**
      * Constant value for the news item loader ID. We can choose any integer.
@@ -55,6 +54,7 @@ public class NewsActivity extends AppCompatActivity
         // Find a reference to the {@link ListView} in the layout
         ListView newsListView = (ListView) findViewById(R.id.list);
 
+        // Hook up the TextView as the empty view of the ListView
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
         newsListView.setEmptyView(mEmptyStateTextView);
 
@@ -64,7 +64,6 @@ public class NewsActivity extends AppCompatActivity
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
         newsListView.setAdapter(mAdapter);
-
 
         // Set an item click listener on the ListView, which sends an intent to a web browser
         // to open a website with more information about the selected news item.
@@ -94,12 +93,15 @@ public class NewsActivity extends AppCompatActivity
 
         // If there is a network connection, fetch data
         if (networkInfo != null && networkInfo.isConnected()) {
+
             // Get a reference to the LoaderManager, in order to interact with loaders.
             LoaderManager loaderManager = getLoaderManager();
 
-            // Initialize the loader. Pass in the int ID constant defined above and pass in null for
-            // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
-            // because this activity implements the LoaderCallbacks interface).
+            /**
+             * Initialize the loader. Pass in the int ID constant defined above and pass in null for
+             * the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
+             * because this activity implements the LoaderCallbacks interface).
+             */
             loaderManager.initLoader(NEWS_LOADER_ID, null, this);
         } else {
             // Otherwise, display error
@@ -118,7 +120,7 @@ public class NewsActivity extends AppCompatActivity
 
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
-
+        // Create a new loader for the given URL
         return new NewsLoader(this, GUARDIAN_REQUEST_URL);
     }
 
@@ -138,7 +140,6 @@ public class NewsActivity extends AppCompatActivity
         // data set. This will trigger the ListView to update.
         if (newsItems != null && !newsItems.isEmpty()) {
             mAdapter.addAll(newsItems);
-
         }
     }
 
@@ -147,5 +148,4 @@ public class NewsActivity extends AppCompatActivity
         // Loader reset, so we can clear out our existing data.
         mAdapter.clear();
     }
-
 }
