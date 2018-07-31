@@ -49,14 +49,28 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Get the news item date string from the News object
         String newsItemDate = currentNewsItem.getNewsDate();
 
+        // Format date string so Date and Time are split
         String[] dateTimeparts = newsItemDate.split("T");
-        // newsItemDateDay should just be the day part of the date
+        // newsItemDateDay should just be the date part
         String newsItemDateDay = dateTimeparts[0];
+
+        // Find the TextView with view ID date
+        TextView dateView = (TextView) listItemView.findViewById(R.id.date);
+
+        // Display the date of the current news item in that TextView
+        dateView.setText(newsItemDateDay);
+
         // newsItemTimeDraft will include the time part of the date plus the Z
         String newsItemTimeDraft = dateTimeparts[1];
         String[] timeParts = newsItemTimeDraft.split("Z");
         // newsItemTime trims off the Z part of the date
         String newsItemTime = timeParts[0];
+
+        // Find the TextView with view ID time
+        TextView timeView = (TextView) listItemView.findViewById(R.id.time);
+
+        // Display the time of the current news item in that TextView
+        timeView.setText(newsItemTime);
 
         // Get the news item title string from the News object
         String newsItemTitle = currentNewsItem.getNewsTitle();
@@ -78,10 +92,10 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Set the color of the news section
         newsSectionTextView.setTextColor(newsSectionCustomColor);
 
-        // Get the news item author byline string from the News object
+        // Get the news item author string from the News object
         String newsAuthorByline = currentNewsItem.getNewsAuthor();
         // Find the TextView with view ID news author
-        TextView newsAuthorTextView = (TextView) listItemView.findViewById(R.id.news_byline);
+        TextView newsAuthorTextView = (TextView) listItemView.findViewById(R.id.news_author);
 
         // Determine if news item has author or not
         if (currentNewsItem.hasAuthor()) {
@@ -94,21 +108,10 @@ public class NewsAdapter extends ArrayAdapter<News> {
             newsAuthorTextView.setVisibility(View.GONE);
         }
 
-        // Find the TextView with view ID date
-        TextView dateView = (TextView) listItemView.findViewById(R.id.date);
-
-        // Display the date of the current news item in that TextView
-        dateView.setText(newsItemDateDay);
-
-        // Find the TextView with view ID time
-        TextView timeView = (TextView) listItemView.findViewById(R.id.time);
-
-        // Display the time of the current news item in that TextView
-        timeView.setText(newsItemTime);
-
         // Return the list item view that is now showing the appropriate news data
         return listItemView;
     }
+
     /**
      * Return the specific color for each section of the news item
      *
@@ -118,7 +121,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         int newsSectionResourceId;
         switch (newsSection) {
 
-            case "Art and design":
+            case "Technology":
                 newsSectionResourceId = R.color.newsSectionColor1;
                 break;
             case "Music":
@@ -130,14 +133,14 @@ public class NewsAdapter extends ArrayAdapter<News> {
             case "Culture":
                 newsSectionResourceId = R.color.newsSectionColor4;
                 break;
-            case "Education":
+            case "Geography":
                 newsSectionResourceId = R.color.newsSectionColor5;
                 break;
-            case "Opinion":
+            case "Sports":
                 newsSectionResourceId = R.color.newsSectionColor6;
                 break;
 
-            case "Stage":
+            case "Film":
                 newsSectionResourceId = R.color.newsSectionColor7;
                 break;
 

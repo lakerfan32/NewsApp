@@ -21,7 +21,7 @@
         android:layout_centerInParent="true"
         android:textSize="16sp" />
 
-    <!-- Loading indicator for user feedback between queries to Guardian -->
+    <!-- Loading indicator when accessing news item from Guardian -->
     <ProgressBar
         android:id="@+id/loading_indicator"
         style="@style/Widget.AppCompat.ProgressBar"

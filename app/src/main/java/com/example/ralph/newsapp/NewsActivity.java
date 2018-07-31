@@ -22,14 +22,14 @@ public class NewsActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<List<News>>,
         SharedPreferences.OnSharedPreferenceChangeListener {
 
-
     private static final String LOG_TAG = NewsActivity.class.getName();
 
     /**
      * URL for news item data from the GUARDIAN dataset
+     * (sorted by Relevance
      */
     private static final String GUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/search?q=arts&from-date=2018-05-01&order-by=relevance&show-tags=contributor&api-key=e645d915-0452-42bf-8709-535c74471ce5";
+            "https://content.guardianapis.com/search?q=movies&from-date=2018-02-01&order-by=relevance&show-tags=contributor&api-key=b12ea91b-a708-4145-a15f-e9cb7cf79369";
 
     /**
      * Constant value for the news item loader ID. We can choose any integer.
@@ -131,8 +131,8 @@ public class NewsActivity extends AppCompatActivity
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
 
-        // Set empty state text to display "No news found."
-        mEmptyStateTextView.setText(R.string.no_news_found);
+        // Set empty state text to display "News not Available."
+        mEmptyStateTextView.setText(R.string.news_not_available);
 
         // Clear the adapter of previous news data
         mAdapter.clear();
