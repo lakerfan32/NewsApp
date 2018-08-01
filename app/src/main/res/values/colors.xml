@@ -9,40 +9,40 @@
     <!-- Accent color of the app -->
     <color name="colorAccent">#a200ff</color>
 
-    <!-- Text color for the section of the news item -->
+    <!-- Text color for news item section -->
     <color name="textColorNewsSection">#4A7BA7</color>
 
-    <!-- Text color for the title of the news item -->
+    <!-- Text color for the news item title -->
     <color name="textColorNewsTitle">#2B3D4D</color>
 
-    <!-- Text color for the date of the news item -->
+    <!-- Text color for the news item date -->
     <color name="textColorNewsDate">#000000</color>
 
-    <!-- Text color for the time of the news item -->
+    <!-- Text color for the news item time -->
     <color name="textColorNewsTime">#000000</color>
 
-    <!-- Text color for the author of the news item -->
+    <!-- Text color for the news item author -->
     <color name="textColorAuthor">#000000</color>
 
-    <!-- Color for a news item in the news section 1 -->
+    <!-- Color for the news item in section 1 -->
     <color name="newsSectionColor1">#559e83</color>
 
-    <!-- Color for a news item in the news section 2 -->
+    <!-- Color for the news item in section 2 -->
     <color name="newsSectionColor2">#00b159</color>
 
-    <!-- Color for a news item in the news section 3 -->
+    <!-- Color for the news item in section 3 -->
     <color name="newsSectionColor3">#00aedb</color>
 
-    <!-- Color for a news item in the news section 4 -->
+    <!-- Color for the news item in section 4 -->
     <color name="newsSectionColor4">#f37735</color>
 
-    <!-- Color for a news item in the news section 5 -->
+    <!-- Color for the news item in section 5 -->
     <color name="newsSectionColor5">#ffc425</color>
 
-    <!-- Color for a news item in the news section 6 -->
+    <!-- Color for the news item in section 6 -->
     <color name="newsSectionColor6">#ae5a41</color>
 
-    <!-- Color for a news item in the news section 7 -->
+    <!-- Color for the news item in section 7 -->
     <color name="newsSectionColor7">#d11141</color>
 
 </resources>

@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingBottom="6dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="6dp">
+    android:paddingTop="@dimen/padding_top"
+    android:paddingBottom="@dimen/padding_bottom"
+    android:paddingLeft="@dimen/padding_left"
+    android:paddingRight="@dimen/padding_right">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -22,13 +22,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:ellipsize="end"
             android:fontFamily="sans-serif-medium"
             android:gravity="bottom"
             android:maxLines="1"
             android:textAllCaps="true"
             android:textColor="@color/textColorNewsSection"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_size_section"
             android:textStyle="bold"
             tools:text="News Section" />
 
@@ -38,12 +37,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:ellipsize="end"
             android:gravity="top"
             android:maxLines="2"
             android:textColor="@color/textColorNewsTitle"
-            android:textSize="16sp"
-            tools:text="Sample title of news article which could span up to 2 lines" />
+            android:textSize="@dimen/text_size_title"
+            tools:text="Sample title of news item which could span up to 2 lines" />
 
         <!-- Name of author, if available -->
         <TextView
@@ -51,13 +49,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:ellipsize="end"
             android:fontFamily="sans-serif-regular"
             android:gravity="bottom"
             android:maxLines="1"
-            android:textStyle="italic"
             android:textColor="@color/textColorAuthor"
-            android:textSize="12sp"
+            android:textSize="@dimen/text_size_author"
             tools:text="Author Name" />
 
     </LinearLayout>
@@ -66,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="@dimen/left_margin"
         android:layout_marginStart="16dp"
         android:orientation="vertical">
 
@@ -77,8 +73,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:textColor="@color/textColorNewsDate"
-            android:textSize="12sp"
-            tools:text="01-01-2018" />
+            android:textSize="@dimen/text_size_date"
+            tools:text="2018-01-01" />
 
         <!-- Time of news item -->
         <TextView
@@ -87,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:textColor="@color/textColorNewsTime"
-            android:textSize="12sp"
+            android:textSize="@dimen/text_size_time"
             tools:text="12:00:00" />
 
     </LinearLayout>

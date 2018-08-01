@@ -1,7 +1,6 @@
 package com.example.ralph.newsapp;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,11 +86,6 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Display the section of the current news item in that TextView
         newsSectionTextView.setText(newsItemSection);
 
-        // Change the text color of the news section based on the section
-        int newsSectionCustomColor = getNewsSectionColor(currentNewsItem.getNewsSection());
-        // Set the color of the news section
-        newsSectionTextView.setTextColor(newsSectionCustomColor);
-
         // Get the news item author string from the News object
         String newsAuthorByline = currentNewsItem.getNewsAuthor();
         // Find the TextView with view ID news author
@@ -111,45 +105,4 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Return the list item view that is now showing the appropriate news data
         return listItemView;
     }
-
-    /**
-     * Return the specific color for each section of the news item
-     *
-     * @param newsSection of the item
-     */
-    private int getNewsSectionColor(String newsSection) {
-        int newsSectionResourceId;
-        switch (newsSection) {
-
-            case "Technology":
-                newsSectionResourceId = R.color.newsSectionColor1;
-                break;
-            case "Music":
-                newsSectionResourceId = R.color.newsSectionColor2;
-                break;
-            case "Travel":
-                newsSectionResourceId = R.color.newsSectionColor3;
-                break;
-            case "Culture":
-                newsSectionResourceId = R.color.newsSectionColor4;
-                break;
-            case "Geography":
-                newsSectionResourceId = R.color.newsSectionColor5;
-                break;
-            case "Sports":
-                newsSectionResourceId = R.color.newsSectionColor6;
-                break;
-
-            case "Film":
-                newsSectionResourceId = R.color.newsSectionColor7;
-                break;
-
-            default:
-                newsSectionResourceId = R.color.textColorNewsSection;
-                break;
-        }
-
-        return ContextCompat.getColor(getContext(), newsSectionResourceId);
-    }
-
 }
