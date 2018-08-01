@@ -2,9 +2,9 @@
     <string name="app_name">NewsApp</string>
 
     <!-- Text to display in the list when there is no news [CHAR LIMIT=NONE] -->
-    <string name="news_not_available">News not Available.</string>
+    <string name="news_not_available">Currently, no news available.  Please try again later.</string>
 
     <!-- Error message when there is no internet connectivity [CHAR LIMIT=NONE] -->
-    <string name="no_internet_connection">No internet connection.</string>
+    <string name="no_internet_connection">No internet connection.  Please verify settings.</string>
 
 </resources>
