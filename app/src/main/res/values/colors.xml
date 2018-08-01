@@ -24,25 +24,4 @@
     <!-- Text color for the news item author -->
     <color name="textColorAuthor">#000000</color>
 
-    <!-- Color for the news item in section 1 -->
-    <color name="newsSectionColor1">#559e83</color>
-
-    <!-- Color for the news item in section 2 -->
-    <color name="newsSectionColor2">#00b159</color>
-
-    <!-- Color for the news item in section 3 -->
-    <color name="newsSectionColor3">#00aedb</color>
-
-    <!-- Color for the news item in section 4 -->
-    <color name="newsSectionColor4">#f37735</color>
-
-    <!-- Color for the news item in section 5 -->
-    <color name="newsSectionColor5">#ffc425</color>
-
-    <!-- Color for the news item in section 6 -->
-    <color name="newsSectionColor6">#ae5a41</color>
-
-    <!-- Color for the news item in section 7 -->
-    <color name="newsSectionColor7">#d11141</color>
-
 </resources>
