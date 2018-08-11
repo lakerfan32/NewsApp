@@ -7,4 +7,7 @@
     <!-- Error message when there is no internet connectivity [CHAR LIMIT=NONE] -->
     <string name="no_internet_connection">No internet connection.  Please verify settings.</string>
 
+    <string name="settings_menu_item">Settings</string>
+    <string name="settings_title">News Settings</string>
+
 </resources>
