@@ -9,6 +9,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,10 +29,10 @@ public class NewsActivity extends AppCompatActivity
 
     /**
      * URL for news item data from the GUARDIAN dataset
-     * (sorted by Relevance
+     * (sorted by Relevance)
      */
     private static final String GUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/search?q=movies&from-date=2018-02-01&order-by=relevance&show-tags=contributor&api-key=b12ea91b-a708-4145-a15f-e9cb7cf79369";
+            "https://content.guardianapis.com/search?";
 
     /**
      * Constant value for the news item loader ID. We can choose any integer.
@@ -121,10 +122,45 @@ public class NewsActivity extends AppCompatActivity
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
     }
 
-    @Override
+/*    @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
         // Create a new loader for the given URL
         return new NewsLoader(this, GUARDIAN_REQUEST_URL);
+    }*/
+
+    @Override
+    // Create a new loader for the given URL
+    public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // getString retrieves a String value from the preferences.
+        // The second parameter is the default value for the preferences.
+        String numberNewsItems = sharedPrefs.getString(
+                getString(R.string.number_news_items_key),
+                getString(R.string.number_news_items_default));
+
+        String orderBy = sharedPrefs.getString(
+                getString(R.string.order_by_key),
+                getString(R.string.order_by_default));
+
+        // parse breaks apart the URI string that's passed into its parameter
+        Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
+
+        // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+
+        // Append query parameter and its value. For example, the `format=geojson`
+        uriBuilder.appendQueryParameter("q", "movies");
+        uriBuilder.appendQueryParameter("from-date", "2018-02-01");
+        uriBuilder.appendQueryParameter("order-by", orderBy);
+        uriBuilder.appendQueryParameter("show-tags", "contributor");
+        uriBuilder.appendQueryParameter("page-size", numberNewsItems);
+        uriBuilder.appendQueryParameter("api-key", "b12ea91b-a708-4145-a15f-e9cb7cf79369");
+
+        // Return the completed uri "https://content.guardianapis.com/search?q=movies&from-date=2018-02-01&order-by=relevance&show-tags=contributor&page-size=10&api-key="
+        return new NewsLoader(this, uriBuilder.toString());
+
     }
 
     @Override
