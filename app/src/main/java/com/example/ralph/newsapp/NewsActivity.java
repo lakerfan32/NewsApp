@@ -122,12 +122,6 @@ public class NewsActivity extends AppCompatActivity
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
     }
 
-/*    @Override
-    public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
-        // Create a new loader for the given URL
-        return new NewsLoader(this, GUARDIAN_REQUEST_URL);
-    }*/
-
     @Override
     // Create a new loader for the given URL
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
@@ -140,9 +134,13 @@ public class NewsActivity extends AppCompatActivity
                 getString(R.string.number_news_items_key),
                 getString(R.string.number_news_items_default));
 
-        String orderBy = sharedPrefs.getString(
-                getString(R.string.order_by_key),
-                getString(R.string.order_by_default));
+        String date = sharedPrefs.getString(
+                getString(R.string.settings_from_date_key),
+                getString(R.string.settings_from_date_default));
+
+        String toDate = sharedPrefs.getString(
+                getString(R.string.settings_to_date_key),
+                getString(R.string.settings_to_date_default));
 
         // parse breaks apart the URI string that's passed into its parameter
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
@@ -152,13 +150,13 @@ public class NewsActivity extends AppCompatActivity
 
         // Append query parameter and its value. For example, the `format=geojson`
         uriBuilder.appendQueryParameter("q", "movies");
-        uriBuilder.appendQueryParameter("from-date", "2018-02-01");
-        uriBuilder.appendQueryParameter("order-by", orderBy);
+        uriBuilder.appendQueryParameter("from-date", date);
+        uriBuilder.appendQueryParameter("to-date", toDate);
         uriBuilder.appendQueryParameter("show-tags", "contributor");
         uriBuilder.appendQueryParameter("page-size", numberNewsItems);
         uriBuilder.appendQueryParameter("api-key", "b12ea91b-a708-4145-a15f-e9cb7cf79369");
 
-        // Return the completed uri "https://content.guardianapis.com/search?q=movies&from-date=2018-02-01&order-by=relevance&show-tags=contributor&page-size=10&api-key="
+        // Return the completed uri "https://content.guardianapis.com/search?q=movies&from-date=2018-02-01&show-tags=contributor&page-size=10&api-key="
         return new NewsLoader(this, uriBuilder.toString());
 
     }

@@ -34,8 +34,12 @@ public class SettingsActivity extends AppCompatActivity {
 
             Log.i("Settings Activity", "number of news items =  " + numberNewsItems);
 
-            Preference orderBy = findPreference(getString(R.string.order_by_key));
-            bindPreferenceSummaryToValue(orderBy);
+            Preference date = findPreference(getString(R.string.settings_from_date_key));
+            bindPreferenceSummaryToValue(date);
+
+            Preference toDate = findPreference(getString(R.string.settings_to_date_key));
+            bindPreferenceSummaryToValue(toDate);
+
         }
 
         // This method will be called when the user has changed a Preference

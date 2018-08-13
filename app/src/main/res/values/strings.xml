@@ -12,56 +12,19 @@
     <string name="settings_menu_item">Settings</string>
     <string name="settings_title">News Settings</string>
 
-    <!-- Strings for Page Size Preference (10 items displayed by default) -->
+    <!-- String settings for Page Size Preference (10 items displayed by default) -->
     <string name="number_news_items_label">Number of News Items</string>
     <string name="number_news_items_key" translatable="false">selected_page_size</string>
     <string name="number_news_items_default" translatable="false">10</string>
 
-    <!-- Strings For Order-By Preference -->
-    <string name="order_by_label">Order By</string>
-    <string name="order_by_key" translatable="false">order_by</string>
-    <string name="order_by_default" translatable="false">@string/order_by_newest_value</string>
+    <!-- String settings for Starting Date preference -->
+    <string name = "settings_from_date_label">Show stories from</string>
+    <string name = "settings_from_date_key" translatable="false">older_date</string>
+    <string name = "settings_from_date_default" translatable="false">2018-01-01</string>
 
-    <!-- Label for Order-By newest option -->
-    <string name="order_by_newest_label">Newest</string>
-    <string name="order_by_newest_value" translatable="false">Newest</string>
-
-    <!-- Label for Order-By oldest option -->
-    <string name="order_by_oldest_label">Oldest</string>
-    <string name="order_by_oldest_value" translatable="false">Oldest</string>
-
-    <!-- Label for Order-By relevance option -->
-    <string name="order_by_relevance_label">Relevance</string>
-    <string name="order_by_relevance_value" translatable="false">relevance</string>
-
-
-
-    <!-- News Section title selection -->
-    <string name="settings_news_section_label">News Section</string>
-    <string name="settings_news_section_key" translatable="false">news_section</string>
-
-    <!-- These go in the settings_main menu that shows each section as options for news section -->
-    <string name="settings_news_section_default_label">All</string>
-    <string name="settings_news_section_arts_label">Art and Design</string>
-    <string name="settings_news_section_music_label">Music</string>
-    <string name="settings_news_section_culture_label">Culture</string>
-    <string name="settings_news_section_stage_label">Stage</string>
-    <string name="settings_news_section_tvradio_label">TV and Radio</string>
-
-    <string name="settings_news_section_default_value" translatable="false"></string>
-
-    <string name="settings_news_section_arts_value" translatable="false">artanddesign/artanddesign</string>
-    <string name="settings_news_section_music_value" translatable="false">music/music</string>
-    <string name="settings_news_section_culture_value" translatable="false">culture/culture</string>
-    <string name="settings_news_section_stage_value" translatable="false">stage/stage</string>
-    <string name="settings_news_section_tvradio_value">tv-and-radio/tv-and-radio</string>
-
-    <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
-    <string name="settings_order_by_most_recent_label">Most Recent</string>
-    <string name="settings_order_by_most_recent_value" translatable="false">newest</string>
-
-    <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
-    <string name="settings_order_by_relevance_label">Relevance</string>
-    <string name="settings_order_by_relevance_value" translatable="false">relevance</string>
+    <!-- String settings for Ending Date preference -->
+    <string name = "settings_to_date_label">Show stories to</string>
+    <string name = "settings_to_date_key" translatable="false">newer_date</string>
+    <string name = "settings_to_date_default" translatable="false">2018-08-01</string>
 
 </resources>
